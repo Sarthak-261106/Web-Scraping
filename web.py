@@ -15,12 +15,16 @@
 
 import requests
 
-url='https://en.wikipedia.org/wiki/Dog'
+url='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Comparison_of_a_wolf_and_a_pug.png/500px-Comparison_of_a_wolf_and_a_pug.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail'
 
 user={
     'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36'
 }
 
 response = requests.get(url=url,headers=user)
-print(dir(response))
-print(response.request.headers)
+# print(dir(response))
+pic=response.content
+
+f=open('Comparison_of_a_wolf_and_a_pug.png','wb')
+f.write(pic)
+f.close()
