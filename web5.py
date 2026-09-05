@@ -23,8 +23,8 @@ def Extract(url):
 
     tag = soup.find(id='no-right')
     h = tag.find_all('h2')
+    content = [span.text for span in h]
+    print(content)
 
-    print(h)
 
-
-Extract(url='https://en.wikipedia.org/wiki/Wikipedia')
+Extract(url='https://en.wikipedia.org/wiki/Main_Page')
