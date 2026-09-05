@@ -17,6 +17,10 @@ import requests
 
 url='https://en.wikipedia.org/wiki/Dog'
 
-response = requests.get(url=url)
+user={
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36'
+}
+
+response = requests.get(url=url,headers=user)
 print(dir(response))
 print(response.request.headers)
