@@ -23,6 +23,8 @@ user={
 
 response = requests.get(url=url,headers=user)
 # print(dir(response))
+
+#content
 pic=response.content
 
 f=open('Comparison_of_a_wolf_and_a_pug.png','wb')
