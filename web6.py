@@ -1,4 +1,6 @@
 import requests
+import re
+
 user = input('Enter the image name:')
 
 user_agent={
@@ -7,6 +9,11 @@ user_agent={
 
 url=f'https://www.google.com/search?q={user}&sca_esv=abca9301b52d9f7f&udm=2&biw=767&bih=730&sxsrf=APpeQns7jwBSxcP1SYmmeTDcw96ejDSDYA%3A1788607691538&ei=y_ybaqO2IJiZseMPlMDP0QI&ved=2ahUKEwjjx-LwqteWAxWYTGwGHRTgMyoQ4dUDegQIBhAN&uact=5&oq=moon&gs_lp=Egtnd3Mtd2l6LWltZyIEbW9vbjIQEAAYgAQYigUYQxixAxiDATIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHkj4CVAAWABwAXgAkAEAmAEAoAEAqgEAuAEDyAEAmAIBoAIHmAMAiAYBkgcBMaAHALIHALgHAMIHAzItMcgHBYAIAQ&sclient=gws-wiz-img'
 
-response = requests.get(url=url , headers=user_agent).content
+response = requests.get(url=url , headers=user_agent).text
 
-print(response)
+pattern=r'\[\"https://.*\.jpg\",[0-9]+,[0-9]+\]'
+# pattern = r'\["https://.*?\.jpg",[0-9]+,[0-9]+\]'
+
+images=re.findall(pattern , response)
+
+print(images)
