@@ -1,7 +1,14 @@
-print(ord('A'))
+# print(ord('A'))
+#
+# print(ord('2'))
+#
+# print(ord('a'))
+#
+# print(ord('@'))
 
-print(ord('2'))
+import urllib.request, urllib.parse, urllib.error
 
-print(ord('a'))
+url = urllib.request.urlopen('file:///C:/Users/sarth/OneDrive/Desktop/index1.html')
 
-print(ord('@'))
+for line in url:
+    print(line.decode().strip())
