@@ -22,7 +22,7 @@ def Extract(url):
     soup = BeautifulSoup(response, features='lxml')
 
     tag = soup.find(id='no-right')
-    h = tag.find('h2')
+    h = tag.find_all('h2')
 
     print(h)
 
